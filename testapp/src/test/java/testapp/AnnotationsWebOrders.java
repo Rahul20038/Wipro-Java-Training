@@ -51,26 +51,35 @@ public class AnnotationsWebOrders {
         pause(2);
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, groups = {"smoke"})
     public void verifyHomePage() {
         String title = driver.getTitle();
         Assert.assertTrue(title.contains("Web Orders"), "Home page not loaded correctly");
         pause(2);
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, groups = {"smoke"})
     public void viewAllOrders() {
         WebElement ordersLink = wait.until(
             ExpectedConditions.elementToBeClickable(By.linkText("View all orders"))
         );
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='ctl00_MainContent_orderGrid_ctl02_OrderSelector']"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.xpath("//input[@id='ctl00_MainContent_orderGrid_ctl02_OrderSelector']")
+        )).click();
         ordersLink.click();
         pause(2);
         Assert.assertTrue(driver.getPageSource().contains("List of All Orders"), "Orders page not loaded");
         pause(2);
     }
 
-    @Test(priority = 3)
+    // This will be ignored using 'enabled=false'
+    @Test(priority = 3, groups = {"ignore"}, enabled = false)
+    public void ignoredTest() {
+        System.out.println("This test is ignored and won't run");
+    }
+
+    // Regression test depending on smoke test
+    @Test(priority = 4, groups = {"regression"}, dependsOnMethods = {"verifyHomePage"})
     public void viewAllProducts() {
         WebElement productsLink = wait.until(
             ExpectedConditions.elementToBeClickable(By.linkText("View all products"))
@@ -81,18 +90,18 @@ public class AnnotationsWebOrders {
         pause(2);
     }
 
-    @Test(priority = 4)
+    // Regression test depending on multiple smoke tests
+    @Test(priority = 5, groups = {"regression"}, dependsOnMethods = {"verifyHomePage", "viewAllOrders"})
     public void placeOrder() {
-        // Navigate to Order page
         WebElement orderLink = wait.until(
             ExpectedConditions.elementToBeClickable(By.linkText("Order"))
         );
         orderLink.click();
         pause(2);
 
-        // Uncomment and use if you want to actually place an order with pauses
-        
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ctl00_MainContent_fmwOrder_ddlProduct"))).sendKeys("FamilyAlbum");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.id("ctl00_MainContent_fmwOrder_ddlProduct")
+        )).sendKeys("FamilyAlbum");
         pause(1);
         driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity")).clear();
         pause(1);
@@ -108,7 +117,6 @@ public class AnnotationsWebOrders {
         pause(1);
         driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox5")).sendKeys("12345");
         pause(1);
-
         driver.findElement(By.id("ctl00_MainContent_fmwOrder_cardList_0")).click();
         pause(1);
         driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox6")).sendKeys("4111111111111111");
@@ -122,7 +130,6 @@ public class AnnotationsWebOrders {
         Assert.assertTrue(driver.getPageSource().contains("New order has been successfully added."),
                 "Order placement failed");
         pause(2);
-        
     }
 
     @AfterClass
@@ -130,6 +137,12 @@ public class AnnotationsWebOrders {
         driver.quit();
         System.out.println("=== Browser Closed ===");
     }
+    @AfterSuite
+    public void aftersuite() {
+    	System.out.println("Suite completed");
+    }
+    
+    
     
 
 }
