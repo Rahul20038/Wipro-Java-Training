@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-08-19T16:13:28 IST" name="Default suite" finished-at="2025-08-19T16:13:38 IST" duration-ms="10150">
+    <groups>
+    </groups>
+    <test started-at="2025-08-19T16:13:28 IST" name="Default test" finished-at="2025-08-19T16:13:38 IST" duration-ms="10150">
+      <class name="TestingDay27.TestsExtentReport4">
+        <test-method is-config="true" signature="setupExtent()[pri:0, instance:TestingDay27.TestsExtentReport4@7a8c8dcf]" started-at="2025-08-19T16:13:27 IST" name="setupExtent" finished-at="2025-08-19T16:13:28 IST" duration-ms="300" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupExtent -->
+        <test-method is-config="true" signature="setupDriver()[pri:0, instance:TestingDay27.TestsExtentReport4@7a8c8dcf]" started-at="2025-08-19T16:13:28 IST" name="setupDriver" finished-at="2025-08-19T16:13:33 IST" duration-ms="4917" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupDriver -->
+        <test-method signature="loginTest()[pri:1, instance:TestingDay27.TestsExtentReport4@7a8c8dcf]" started-at="2025-08-19T16:13:33 IST" name="loginTest" finished-at="2025-08-19T16:13:35 IST" duration-ms="2135" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method signature="viewAllOrders()[pri:2, instance:TestingDay27.TestsExtentReport4@7a8c8dcf]" started-at="2025-08-19T16:13:35 IST" name="viewAllOrders" finished-at="2025-08-19T16:13:36 IST" depends-on-methods="TestingDay27.TestsExtentReport4.loginTest" duration-ms="827" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- viewAllOrders -->
+        <test-method signature="viewAllProducts()[pri:3, instance:TestingDay27.TestsExtentReport4@7a8c8dcf]" started-at="2025-08-19T16:13:36 IST" name="viewAllProducts" finished-at="2025-08-19T16:13:36 IST" depends-on-methods="TestingDay27.TestsExtentReport4.viewAllOrders" duration-ms="502" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- viewAllProducts -->
+        <test-method signature="orderPageTest()[pri:4, instance:TestingDay27.TestsExtentReport4@7a8c8dcf]" started-at="2025-08-19T16:13:36 IST" name="orderPageTest" finished-at="2025-08-19T16:13:36 IST" depends-on-methods="TestingDay27.TestsExtentReport4.viewAllProducts" duration-ms="202" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderPageTest -->
+        <test-method signature="logoutTest()[pri:5, instance:TestingDay27.TestsExtentReport4@7a8c8dcf]" started-at="2025-08-19T16:13:36 IST" name="logoutTest" finished-at="2025-08-19T16:13:37 IST" depends-on-methods="TestingDay27.TestsExtentReport4.orderPageTest" duration-ms="1148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestingDay27.TestsExtentReport4@7a8c8dcf]" started-at="2025-08-19T16:13:37 IST" name="tearDown" finished-at="2025-08-19T16:13:38 IST" duration-ms="372" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="flushReport()[pri:0, instance:TestingDay27.TestsExtentReport4@7a8c8dcf]" started-at="2025-08-19T16:13:38 IST" name="flushReport" finished-at="2025-08-19T16:13:38 IST" duration-ms="441" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReport -->
+      </class> <!-- TestingDay27.TestsExtentReport4 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
