@@ -18,7 +18,7 @@ public class ExcelDataProvider1 {
 	@DataProvider()
 	   public String[][] getdata() throws IOException {
 	      
-	       File s = new File("C:\\Users\\SRIRAMPRAVEEN\\OneDrive\\Documents\\DataProvider.xlsx");
+	       File s = new File("C:\\Users\\lenovo\\OneDrive\\Documents\\Desktop\\WiproTraining\\Wipro-Testing-Documents\\Book1.xlsx");
 	       System.out.println(s.exists());
 	      
 	       FileInputStream fis = new FileInputStream(s);
@@ -47,3 +47,4 @@ public class ExcelDataProvider1 {
 	   }
 
 }
+
